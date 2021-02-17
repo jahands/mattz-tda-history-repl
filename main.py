@@ -34,6 +34,7 @@ while True:
                 break
             sha1.update(data)
 
+    # SAVE NEW VERSIONS TO B2 STORAGE
     sha1str = sha1.hexdigest() # This seems to give the string
     if sha1str != db['grab_file_hash']:  # It's new! Save it to B2!
         print("SHA1: {0}".format(sha1str))
