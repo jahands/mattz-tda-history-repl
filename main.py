@@ -42,6 +42,9 @@ while True:
           # Upload new version to b2
           destination_path = 'TDTrackerMattZ/{0}_{1}'.format(
               date_time_path, file_name)
-          bucket.upload_file(Filename=file_name, Key=destination_path)
+          try:
+            bucket.upload_file(Filename=file_name, Key=destination_path)
+          except:
+            print('FAILED TO UPLOAD, OH WELL BETTER LUCK NEXT TIME!')
 
     time.sleep(12)  # check every 12 seconds
