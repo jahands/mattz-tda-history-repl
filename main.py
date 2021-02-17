@@ -4,7 +4,6 @@ import time
 from datetime import datetime
 import hashlib
 from replit import db
-
 # The primary file name we're saving stuff as
 file_name = 'TDTrackerMattZ.json'
 # Source url that we will be polling from
@@ -35,14 +34,13 @@ while True:
             sha1.update(data)
 
     # SAVE NEW VERSIONS TO B2 STORAGE
-    sha1str = sha1.hexdigest() # This seems to give the string
+    sha1str = sha1.hexdigest()  # This seems to give the string
     if sha1str != db['grab_file_hash']:  # It's new! Save it to B2!
         print("SHA1: {0}".format(sha1str))
         db['grab_file_hash'] = sha1str
         # Upload new version to b2
-        with open(file_name, 'rb') as file:
-            destination_path = 'TDTrackerMattZ/{0}_{1}'.format(
-                date_time_path, file_name)
-            bucket.put_object(Key=destination_path, Body=file)
+        destination_path = 'TDTrackerMattZ/{0}_{1}'.format(
+            date_time_path, file_name)
+        bucket.upload_file(Filename=file_name, Key=destination_path)
 
     time.sleep(12)  # check every 12 seconds
