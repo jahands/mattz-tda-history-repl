@@ -12,7 +12,7 @@ url = 'https://f000.backblazeb2.com/file/mattz-public/TDTrackerMattZ.json'
 s3 = boto3.resource('s3',
                     endpoint_url='https://s3.us-west-002.backblazeb2.com')
 bucket = s3.Bucket('mattz-history')
-print()
+print('Starting main loop')
 # MAIN LOOP TO UPDATE FILE
 while True:
     # DOWNLOAD THE FILE
