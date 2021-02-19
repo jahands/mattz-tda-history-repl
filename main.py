@@ -47,6 +47,6 @@ while True:
               bucket.upload_file(Filename=file_name, Key=destination_path)
             except:
               print('FAILED TO UPLOAD, OH WELL BETTER LUCK NEXT TIME!')
-    except:
+    except any:
       pass
     time.sleep(12)  # check every 12 seconds
