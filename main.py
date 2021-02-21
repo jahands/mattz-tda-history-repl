@@ -3,7 +3,6 @@ import requests
 import time
 from datetime import datetime
 from pytz import timezone
-import pytz
 import hashlib
 from replit import db
 # The primary file name we're saving stuff as
