@@ -1,6 +1,7 @@
 # View history in browser
 https://mattz-history.geostyx.com/
 
+runs 4 as of 2/20
 [Notion page](https://www.notion.so/jhands/mattz-test-for-b2-api-calls-3028f637f9024b79b78f6e36812ec1fe)
 
 this is running on apps-log (byobu)
