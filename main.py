@@ -11,7 +11,10 @@ url = 'https://mattz-cdn.geostyx.com/file/mattz-public/TDTrackerMattZ.json'
 s3 = boto3.resource('s3',
                     endpoint_url='https://s3.us-west-002.backblazeb2.com')
 bucket = s3.Bucket('mattz-history')
-print('Starting main loop')
+if db.get('run_count') is None:
+  db['run_count'] = 0
+db['run_count'] = db['run_count'] + 1
+print('Starting main loop ({0})'.format(db['run_count']))
 # MAIN LOOP TO UPDATE FILE
 while True:
     # Skip weekends
