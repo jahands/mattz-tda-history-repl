@@ -12,10 +12,21 @@ url = 'https://mattz-cdn.geostyx.com/file/mattz-public/TDTrackerMattZ.json'
 s3 = boto3.resource('s3',
                     endpoint_url='https://s3.us-west-002.backblazeb2.com')
 bucket = s3.Bucket('mattz-history')
-if db.get('run_count') is None:
-  db['run_count'] = 0
-db['run_count'] = db['run_count'] + 1
-print('Starting main loop ({0})'.format(db['run_count']))
+
+# DB keys so it's not hard coded strings everywhere
+class KEY: 
+    run_count = 'run_count'
+    grab_file_hash = 'grab_file_hash'
+
+
+# init db stuff if it's not there
+if db.get(KEY.run_count) is None:
+    db[KEY.run_count] = 0
+if db.get(KEY.grab_file_hash) is None:
+    db[KEY.grab_file_hash] = 'x'
+
+db[KEY.run_count] = db[KEY.run_count] + 1
+print('Starting main loop ({0})'.format(db[KEY.run_count]))
 
 # MAIN LOOP TO UPDATE FILE
 while True:
@@ -34,9 +45,9 @@ while True:
 
                 # SAVE NEW VERSIONS TO B2 STORAGE
                 sha1str = get_sha1(file_name)
-                if sha1str != db['grab_file_hash']:  # It's new! Save it to B2!
+                if sha1str != db[KEY.grab_file_hash]:  # It's new! Save it to B2!
                     print("SHA1: {0}".format(sha1str))
-                    db['grab_file_hash'] = sha1str
+                    db[KEY.grab_file_hash] = sha1str
                     # Upload new version to b2
                     destination_path = 'TDTrackerMattZ/{0}_{1}'.format(
                         date_time_path, file_name)
