@@ -3,8 +3,8 @@ import requests
 import time
 from datetime import datetime
 from pytz import timezone
-import hashlib
 from replit import db
+from utils import get_sha1
 # The primary file name we're saving stuff as
 file_name = 'TDTrackerMattZ.json'
 # Source url that we will be polling from
@@ -16,6 +16,7 @@ if db.get('run_count') is None:
   db['run_count'] = 0
 db['run_count'] = db['run_count'] + 1
 print('Starting main loop ({0})'.format(db['run_count']))
+
 # MAIN LOOP TO UPDATE FILE
 while True:
     # Skip weekends
@@ -31,19 +32,8 @@ while True:
                 date_time_path = dt.strftime('%Y/%m/%d/%H/%Y-%m-%dT%H-%M-%S')
                 # 2021/02/17/02/2021-02-17T02-01-09
 
-                # GET THE HASH
-                # BUF_SIZE is totally arbitrary, change for your app!
-                BUF_SIZE = 65536  # lets read stuff in 64kb chunks!
-                sha1 = hashlib.sha1()
-                with open(file_name, 'rb') as f:
-                    while True:
-                        data = f.read(BUF_SIZE)
-                        if not data:
-                            break
-                        sha1.update(data)
-
                 # SAVE NEW VERSIONS TO B2 STORAGE
-                sha1str = sha1.hexdigest()  # This seems to give the string
+                sha1str = get_sha1(file_name)
                 if sha1str != db['grab_file_hash']:  # It's new! Save it to B2!
                     print("SHA1: {0}".format(sha1str))
                     db['grab_file_hash'] = sha1str
