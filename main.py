@@ -19,7 +19,7 @@ print('Starting main loop ({0})'.format(db['run_count']))
 while True:
     # Skip weekends
     dt = datetime.utcnow()
-    isWeekend = (dt.isoweekday() == 6 or dt.isoweekday() == 0)
+    isWeekend = (dt.isoweekday() >= 6)
     if not isWeekend:
         # DOWNLOAD THE FILE
         try:
