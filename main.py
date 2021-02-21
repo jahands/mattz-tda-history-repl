@@ -2,6 +2,8 @@ import boto3
 import requests
 import time
 from datetime import datetime
+from pytz import timezone
+import pytz
 import hashlib
 from replit import db
 # The primary file name we're saving stuff as
@@ -19,7 +21,7 @@ print('Starting main loop ({0})'.format(db['run_count']))
 while True:
     # Skip weekends
     dt = datetime.utcnow()
-    isWeekend = (dt.isoweekday() >= 6)
+    isWeekend = (datetime.now(timezone('US/Eastern')).isoweekday() >= 6)
     if not isWeekend:
         # DOWNLOAD THE FILE
         try:
