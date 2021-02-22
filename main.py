@@ -27,7 +27,7 @@ if db.get(KEY.grab_file_hash) is None:
 
 db[KEY.run_count] = db[KEY.run_count] + 1
 print('Starting main loop ({0})'.format(db[KEY.run_count]))
-
+run_count = db[KEY.run_count]
 # MAIN LOOP TO UPDATE FILE
 while True:
     # Skip weekends
@@ -46,7 +46,7 @@ while True:
                 # SAVE NEW VERSIONS TO B2 STORAGE
                 sha1str = get_sha1(file_name)
                 if sha1str != db[KEY.grab_file_hash]:  # It's new! Save it to B2!
-                    print("SHA1: {0}".format(sha1str))
+                    print("[{0}] SHA1: {1}".format(run_count, sha1str))
                     db[KEY.grab_file_hash] = sha1str
                     # Upload new version to b2
                     destination_path = 'TDTrackerMattZ/{0}_{1}'.format(
