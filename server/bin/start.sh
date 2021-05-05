@@ -1,0 +1,2 @@
+#!/bin/bash
+$HOME/mattz-tda-history/server/bin/rclone serve http b2-cache: --config $HOME/mattz-tda-history/server/rclone.conf & $HOME/mattz-tda-history/server/bin/caddy run -config $HOME/mattz-tda-history/server/Caddyfile

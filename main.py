@@ -6,6 +6,12 @@ from datetime import datetime
 from pytz import timezone
 from replit import db
 from utils import get_sha1
+from subprocess import Popen, DEVNULL
+# RUN SERVER
+p = Popen(['/home/runner/mattz-tda-history/server/bin/start.sh'],
+          stdout=DEVNULL,
+          stderr=DEVNULL)
+
 # The primary file name we're saving stuff as
 file_name = 'TDTrackerMattZ.json'
 # Source url that we will be polling from
@@ -43,7 +49,8 @@ while True:
                 if r.ok:
                     with open(file_name, 'wb') as outfile:
                         outfile.write(r.content)
-                    date_time_path = dt.strftime('%Y/%m/%d/%H/%Y-%m-%dT%H-%M-%S')
+                    date_time_path = dt.strftime(
+                        '%Y/%m/%d/%H/%Y-%m-%dT%H-%M-%S')
                     # 2021/02/17/02/2021-02-17T02-01-09
 
                     # SAVE NEW VERSIONS TO B2 STORAGE
@@ -57,12 +64,13 @@ while True:
                             date_time_path, file_name)
                         try:
                             bucket.upload_file(Filename=file_name,
-                                            Key=destination_path)
+                                               Key=destination_path)
                         except:
                             print(
-                                'FAILED TO UPLOAD, OH WELL BETTER LUCK NEXT TIME!')
+                                'FAILED TO UPLOAD, OH WELL BETTER LUCK NEXT TIME!'
+                            )
             except:
                 print('general error')
     except Exception:
         logging.exception("Error in main loop")
-    time.sleep(12)  # check every 12 seconds
+    time.sleep(120)  # check every 120 seconds
