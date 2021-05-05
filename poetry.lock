@@ -45,10 +45,10 @@ description = "The AWS SDK for Python"
 name = "boto3"
 optional = false
 python-versions = ">= 2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
-version = "1.17.66"
+version = "1.17.67"
 
 [package.dependencies]
-botocore = ">=1.20.66,<1.21.0"
+botocore = ">=1.20.67,<1.21.0"
 jmespath = ">=0.7.1,<1.0.0"
 s3transfer = ">=0.4.0,<0.5.0"
 
@@ -58,7 +58,7 @@ description = "Low-level, data-driven core of boto 3."
 name = "botocore"
 optional = false
 python-versions = ">= 2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
-version = "1.20.66"
+version = "1.20.67"
 
 [package.dependencies]
 jmespath = ">=0.7.1,<1.0.0"
@@ -182,7 +182,7 @@ description = "A library for interacting with features of repl.it"
 name = "replit"
 optional = false
 python-versions = ">=3.8,<4.0"
-version = "3.0.0"
+version = "2.0.0"
 
 [package.dependencies]
 aiohttp = ">=3.6.2,<4.0.0"
@@ -258,7 +258,7 @@ idna = ">=2.0"
 multidict = ">=4.0"
 
 [metadata]
-content-hash = "dd97f74ecade5b9981c5b5a4bdd3b7b6b6ad19e459d225edbbd8d08078238977"
+content-hash = "04a7706678be1b4f715dc431dfc313368c0d893476b4892a981186b52c0eaa95"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -310,12 +310,12 @@ attrs = [
     {file = "attrs-20.3.0.tar.gz", hash = "sha256:832aa3cde19744e49938b91fea06d69ecb9e649c93ba974535d08ad92164f700"},
 ]
 boto3 = [
-    {file = "boto3-1.17.66-py2.py3-none-any.whl", hash = "sha256:fd00ea7a5a177d90fd9de63f56563cd1682da363fbb3e1c3be3127dfd06dd5f3"},
-    {file = "boto3-1.17.66.tar.gz", hash = "sha256:d21af50e35ef2e941df03b4363bbec88909996144f530ba1611ab15156da7c40"},
+    {file = "boto3-1.17.67-py2.py3-none-any.whl", hash = "sha256:1db618cfe0e9d8c6ff4fc31ef4f9620bd72f472da0f3095f0be9372d77b671e9"},
+    {file = "boto3-1.17.67.tar.gz", hash = "sha256:61fe8cbb2d4bf1c9a69a73b3f2c68464e0ab587c9367b35f0ef691f372d5ce67"},
 ]
 botocore = [
-    {file = "botocore-1.20.66-py2.py3-none-any.whl", hash = "sha256:455b2eff5c443393bc3bf898ea4fc0dc50151eba50f2bad6b48bedb1defe0310"},
-    {file = "botocore-1.20.66.tar.gz", hash = "sha256:01c24793df0f814e0b00f109972d4a3fbc54aa5f7edf2fc16c065c24f27e8974"},
+    {file = "botocore-1.20.67-py2.py3-none-any.whl", hash = "sha256:adb26d8bc65761b5a46744f67b7e7096dedb2071aff876e0962cd648f28e9a8f"},
+    {file = "botocore-1.20.67.tar.gz", hash = "sha256:4666fb5bdf7d78c51d465bac7d9eb1d31c34be46990cd1ad2d1b338bbec8c049"},
 ]
 chardet = [
     {file = "chardet-4.0.0-py2.py3-none-any.whl", hash = "sha256:f864054d66fd9118f2e67044ac8981a54775ec5b67aed0441892edb553d21da5"},
@@ -447,8 +447,8 @@ pytz = [
     {file = "pytz-2021.1.tar.gz", hash = "sha256:83a4a90894bf38e243cf052c8b58f381bfe9a7a483f6a9cab140bc7f702ac4da"},
 ]
 replit = [
-    {file = "replit-3.0.0-py3-none-any.whl", hash = "sha256:3dd4f21b8b2a44b8c645a15e87398fa129b356cb6a88faa5eedd30374cc404e1"},
-    {file = "replit-3.0.0.tar.gz", hash = "sha256:7558e5ce46333062849b2c3be058a90d7769f6d7b1ad2382e78981cfaede2aa1"},
+    {file = "replit-2.0.0-py3-none-any.whl", hash = "sha256:862b49887f486a5c83eba4809b86a977378a008f1c5d53ab3c1187418194cf18"},
+    {file = "replit-2.0.0.tar.gz", hash = "sha256:f6953201a5ff5b3ae29b7630fa13a87f2423f5a9afba06fc5427ee0f958c7aa7"},
 ]
 s3transfer = [
     {file = "s3transfer-0.4.2-py2.py3-none-any.whl", hash = "sha256:9b3752887a2880690ce628bc263d6d13a3864083aeacff4890c1c9839a5eb0bc"},
