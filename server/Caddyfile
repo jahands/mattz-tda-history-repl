@@ -1,3 +1,4 @@
 :80 
 
 reverse_proxy /* localhost:8080
+header Cache-Control max-age=3600
