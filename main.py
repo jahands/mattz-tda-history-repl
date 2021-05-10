@@ -73,4 +73,4 @@ while True:
                 print('general error')
     except Exception:
         logging.exception("Error in main loop")
-    time.sleep(120)  # check every 120 seconds
+    time.sleep(3600)  # check every hour
